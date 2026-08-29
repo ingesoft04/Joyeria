@@ -1,4 +1,4 @@
-BEZALEL KR - ESTANDAR PARA CARGAR FOTOGRAFIAS
+BEZALEEL KR - ESTANDAR PARA CARGAR FOTOGRAFIAS
 ================================================
 
 1. Consulte el ID del producto en la plantilla del catalogo.

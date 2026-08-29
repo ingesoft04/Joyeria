@@ -1,4 +1,4 @@
-# Bezalel KR — Joyería y accesorios
+# BEZALEEL KR — Joyería y accesorios
 
 Sitio full stack responsive para catálogo y solicitudes comerciales. Producción: `https://dev-fmv.duckdns.org/joyeria/`.
 
