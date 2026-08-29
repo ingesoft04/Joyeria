@@ -1,0 +1,4 @@
+node_modules/
+.env
+data/solicitudes.json
+npm-debug.log*

@@ -1,0 +1,10 @@
+[
+  {"id":"AR-001","name":"Argollas Aurora","category":"aretes","price":285000,"material":"Oro laminado 18K","description":"Argollas livianas con acabado pulido para todos los días.","featured":true},
+  {"id":"AR-002","name":"Aretes Destello","category":"aretes","price":198000,"material":"Oro laminado 18K","description":"Un punto de luz delicado y atemporal.","featured":false},
+  {"id":"MA-001","name":"Manilla Eslabón","category":"manillas","price":420000,"material":"Oro laminado 18K","description":"Eslabones finos con cierre seguro y brillo cálido.","featured":true},
+  {"id":"MA-002","name":"Manilla Infinito","category":"manillas","price":315000,"material":"Oro laminado 18K","description":"Diseño sutil para celebrar vínculos que permanecen.","featured":false},
+  {"id":"AN-001","name":"Anillo Alma","category":"anillos","price":350000,"material":"Oro laminado 18K","description":"Silueta orgánica y elegante, disponible por talla.","featured":true},
+  {"id":"AN-002","name":"Anillo Promesa","category":"anillos","price":465000,"material":"Oro laminado 18K","description":"Una pieza clásica para regalar o regalarte.","featured":false},
+  {"id":"PE-001","name":"Oso Cariño","category":"peluches","price":89000,"material":"Felpa premium","description":"Oso suave con lazo dorado, listo para sorprender.","featured":true},
+  {"id":"PE-002","name":"Oso Abrazo","category":"peluches","price":119000,"material":"Felpa premium","description":"Un detalle grande para acompañar momentos especiales.","featured":false}
+]
