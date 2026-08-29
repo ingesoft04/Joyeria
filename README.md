@@ -6,6 +6,8 @@ Administración visual: `https://dev-fmv.duckdns.org/joyeria/admin` (clave en `A
 
 El panel agrupa los productos por categoría y maneja los estados `active` (disponible), `sold_out` (agotado pero visible) y `withdrawn` (retirado). La plantilla CSV es compatible con Excel y permite actualizar hasta 500 productos por carga.
 
+Las fotografías también admiten carga masiva. El nombre del archivo debe ser el ID del producto (`AR-001.jpg`); el panel valida coincidencias y tamaño antes de publicar secuencialmente cada imagen.
+
 ## Arquitectura
 
 - `domain`: entidades y reglas esenciales.

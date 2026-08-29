@@ -1,0 +1,23 @@
+BEZALEL KR - ESTANDAR PARA CARGAR FOTOGRAFIAS
+================================================
+
+1. Consulte el ID del producto en la plantilla del catalogo.
+2. Cambie el nombre de cada fotografia por ese ID exacto.
+
+Ejemplos:
+  AR-001.jpg   -> fotografia del producto AR-001
+  MA-002.png   -> fotografia del producto MA-002
+  PE-001.webp  -> fotografia del producto PE-001
+
+Formatos permitidos: JPG, JPEG, PNG y WebP.
+Tamano maximo: 4 MB por fotografia.
+
+Recomendacion visual:
+  - Imagen cuadrada (relacion 1:1).
+  - Al menos 1000 x 1000 pixeles.
+  - Producto centrado y con buena iluminacion.
+  - Fondo limpio y consistente.
+
+Puede seleccionar todas las fotografias al mismo tiempo. Antes de publicar,
+el panel mostrara el producto que corresponde a cada archivo y avisara si
+algun nombre no coincide. Las fotos sin coincidencia no se cargan.
