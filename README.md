@@ -6,7 +6,7 @@ Canales oficiales: [Instagram](https://www.instagram.com/bezaleeljoyeriayaccesor
 
 Administración visual: `https://dev-fmv.duckdns.org/joyeria/admin` (clave en `ADMIN_PASSWORD`). Permite editar precios, textos, disponibilidad y fotografías sin tocar código.
 
-El panel agrupa los productos por categoría y maneja los estados `active` (disponible), `sold_out` (agotado pero visible) y `withdrawn` (retirado). La plantilla CSV es compatible con Excel y permite actualizar hasta 500 productos por carga.
+El panel agrupa los productos por categoría con prefijos `AR-`, `MA-`, `AN-` y `PE-`. La plantilla compatible con Excel utiliza tres columnas binarias (`disponible`, `agotado`, `retirado`): exactamente una debe llevar `1` y las otras `0`. Permite actualizar hasta 500 productos por carga.
 
 Las fotografías también admiten carga masiva. El nombre del archivo debe ser el ID del producto (`AR-001.jpg`); el panel valida coincidencias y tamaño antes de publicar secuencialmente cada imagen.
 
