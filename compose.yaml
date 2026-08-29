@@ -5,7 +5,7 @@ services:
     environment:
       PORT: 3000
       BASE_PATH: /joyeria
-      WHATSAPP_NUMBER: ${WHATSAPP_NUMBER:-573000000000}
+      WHATSAPP_NUMBER: ${WHATSAPP_NUMBER:-573175697698}
       ADMIN_PASSWORD: ${ADMIN_PASSWORD:-Cambiar-Esta-Clave}
     ports:
       - "127.0.0.1:${APP_PORT:-3003}:3000"
