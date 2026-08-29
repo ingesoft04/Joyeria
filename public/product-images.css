@@ -1,1 +1,1 @@
-.product-art{overflow:hidden}.product-art img{width:100%;height:100%;object-fit:cover}
+.product-art{overflow:hidden;position:relative}.product-art img{width:100%;height:100%;object-fit:cover}.sold-out .product-art img{filter:grayscale(.7);opacity:.7}.sold-badge{position:absolute;top:1rem;left:1rem;background:#17130f;color:#fff;padding:.35rem .75rem;font:700 .75rem Arial;text-transform:uppercase;letter-spacing:.12em}.sold-out .price>span:last-child{color:#8b6a35;font-size:.8rem;text-transform:uppercase}

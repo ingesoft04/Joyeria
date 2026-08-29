@@ -4,6 +4,8 @@ Sitio full stack responsive para catálogo y solicitudes comerciales. Producció
 
 Administración visual: `https://dev-fmv.duckdns.org/joyeria/admin` (clave en `ADMIN_PASSWORD`). Permite editar precios, textos, disponibilidad y fotografías sin tocar código.
 
+El panel agrupa los productos por categoría y maneja los estados `active` (disponible), `sold_out` (agotado pero visible) y `withdrawn` (retirado). La plantilla CSV es compatible con Excel y permite actualizar hasta 500 productos por carga.
+
 ## Arquitectura
 
 - `domain`: entidades y reglas esenciales.

@@ -1,0 +1,9 @@
+id,nombre,precio,categoria,material,descripcion,estado
+AR-001,Argollas Aurora,285000,aretes,Oro laminado 18K,Argollas livianas con acabado pulido para todos los días.,active
+AR-002,Aretes Destello,198000,aretes,Oro laminado 18K,Un punto de luz delicado y atemporal.,active
+MA-001,Manilla Eslabón,420000,manillas,Oro laminado 18K,Eslabones finos con cierre seguro y brillo cálido.,active
+MA-002,Manilla Infinito,315000,manillas,Oro laminado 18K,Diseño sutil para celebrar vínculos que permanecen.,active
+AN-001,Anillo Alma,350000,anillos,Oro laminado 18K,Silueta orgánica y elegante disponible por talla.,active
+AN-002,Anillo Promesa,465000,anillos,Oro laminado 18K,Una pieza clásica para regalar o regalarte.,active
+PE-001,Oso Cariño,89000,peluches,Felpa premium,Oso suave con lazo dorado listo para sorprender.,active
+PE-002,Oso Abrazo,119000,peluches,Felpa premium,Un detalle grande para acompañar momentos especiales.,active
