@@ -1,9 +1,24 @@
 seccion,prefijo,numero,nombre,precio,material,descripcion,disponible,agotado,retirado
-aretes,AR,001,Argollas Aurora,285000,Oro laminado 18K,Argollas livianas con acabado pulido para todos los días.,1,0,0
-aretes,AR,002,Aretes Destello,198000,Oro laminado 18K,Un punto de luz delicado y atemporal.,1,0,0
-manillas,MA,001,Manilla Eslabón,420000,Oro laminado 18K,Eslabones finos con cierre seguro y brillo cálido.,1,0,0
-manillas,MA,002,Manilla Infinito,315000,Oro laminado 18K,Diseño sutil para celebrar vínculos que permanecen.,1,0,0
-anillos,AN,001,Anillo Alma,350000,Oro laminado 18K,Silueta orgánica y elegante disponible por talla.,1,0,0
-anillos,AN,002,Anillo Promesa,465000,Oro laminado 18K,Una pieza clásica para regalar o regalarte.,1,0,0
-peluches,PE,001,Oso Cariño,89000,Felpa premium,Oso suave con lazo dorado listo para sorprender.,1,0,0
-peluches,PE,002,Oso Abrazo,119000,Felpa premium,Un detalle grande para acompañar momentos especiales.,1,0,0
+balines_lisos,BL,001,Balines lisos,0,Oro,Balines lisos en variedad de tamaños.,1,0,0
+balines_diamantados,BD,001,Balines diamantados,0,Oro,Balines con acabado diamantado.,1,0,0
+barriles,BA,001,Barriles,0,Oro,Barriles para joyería en oro.,1,0,0
+roscas_seguridad,RS,001,Roscas de seguridad,0,Oro,Roscas de seguridad para aretes.,1,0,0
+candados_itl,CI,001,Candados ITL,0,Oro,Candados ITL para joyería.,1,0,0
+riazas,RI,001,Riazas,0,Oro,Riazas en oro disponibles por referencia.,1,0,0
+candongas,CA,001,Candongas,0,Oro,Candongas en diferentes diseños y tamaños.,1,0,0
+topos,TO,001,Topos variedad,0,Oro,Topos en variedad de diseños.,1,0,0
+herrajes,HE,001,Herrajes,0,Oro,Herrajes para joyería.,1,0,0
+cadenas_ncl,CN,001,Cadenas NCL,0,Oro,Cadenas NCL disponibles por referencia.,1,0,0
+cadenas_itl,CT,001,Cadenas ITL,0,Oro,Cadenas ITL disponibles por referencia.,1,0,0
+dijes,DI,001,Dijes,0,Oro,Dijes en variedad de motivos.,1,0,0
+pulseras_ncl,PN,001,Pulseras NCL,0,Oro,Pulseras NCL disponibles por referencia.,1,0,0
+pulseras_itl,PT,001,Pulseras ITL,0,Oro,Pulseras ITL disponibles por referencia.,1,0,0
+anillos,AN,001,Anillos,0,Oro,Anillos en variedad de estilos y tallas.,1,0,0
+accesorios,AC,001,Accesorios,0,Accesorios,Accesorios y detalles para regalar.,1,0,0
+accesorios_cabello,CB,001,Accesorios para el cabello,0,Accesorios,Accesorios para complementar tu cabello.,1,0,0
+peluches,PE,001,Peluches,0,Felpa,Peluches para regalar en momentos especiales.,1,0,0
+mugs,MU,001,Mugs,0,Regalos,Mugs para obsequios y detalles especiales.,1,0,0
+cepillos_cabello,CP,001,Cepillos para el cabello,0,Accesorios,Cepillos para el cuidado del cabello.,1,0,0
+maquillaje,MQ,001,Maquillaje,0,Belleza,Productos de maquillaje disponibles por referencia.,1,0,0
+munecas,MN,001,Muñecas,0,Regalos,Muñecas para regalar.,1,0,0
+llaveros,LL,001,Llaveros,0,Accesorios,Llaveros en variedad de diseños.,1,0,0
