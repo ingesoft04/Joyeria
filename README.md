@@ -2,6 +2,8 @@
 
 Sitio full stack responsive para catálogo y solicitudes comerciales. Producción: `https://dev-fmv.duckdns.org/joyeria/`.
 
+Administración visual: `https://dev-fmv.duckdns.org/joyeria/admin` (clave en `ADMIN_PASSWORD`). Permite editar precios, textos, disponibilidad y fotografías sin tocar código.
+
 ## Arquitectura
 
 - `domain`: entidades y reglas esenciales.

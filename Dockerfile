@@ -5,9 +5,8 @@ COPY src ./src
 COPY public ./public
 COPY data ./data
 COPY tests ./tests
-RUN chmod -R a+rX /app && mkdir -p /app/storage && chown node:node /app/storage
+RUN apk add --no-cache su-exec && chmod -R a+rX /app && mkdir -p /app/storage && chown node:node /app/storage
 ENV NODE_ENV=production PORT=3000 BASE_PATH=/joyeria
 EXPOSE 3000
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 CMD wget -qO- http://127.0.0.1:3000/joyeria/api/health || exit 1
-USER node
-CMD ["node","src/server.js"]
+CMD ["sh","-c","chown -R node:node /app/storage && exec su-exec node node src/server.js"]
