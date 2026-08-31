@@ -1,1 +1,32 @@
-.customizer{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,7vw,7rem);padding:7rem clamp(1.2rem,7vw,8rem);background:#f4ecdf;align-items:center}.customizer-intro>p{max-width:560px;color:#766d63}.bracelet-preview{height:300px;position:relative;display:grid;place-items:center;margin-top:2rem;background:radial-gradient(circle,#fff 0 24%,#eadcc7 25% 60%,#d8c2a0);overflow:hidden}.thread{position:absolute;width:230px;height:150px;border:9px solid var(--thread,#17130f);border-radius:50%;box-shadow:inset 0 0 0 2px #fff4}.beads{position:absolute;width:250px;height:170px;border:20px dotted #c99847;border-radius:50%}.bracelet-preview[data-look=diamond] .beads{border-style:dashed;filter:drop-shadow(0 0 3px #fff)}.bracelet-preview[data-look=mixed] .beads{border-style:double;border-width:16px}.charm{position:absolute;bottom:54px;background:#d6a654;color:#17130f;width:43px;height:43px;border-radius:50%;display:grid;place-items:center;font:1.6rem Georgia}.preview-note{text-align:center;font-size:.75rem}.customizer form{background:#fff;padding:clamp(1.2rem,4vw,3rem)}.customizer fieldset{border:0;border-bottom:1px solid #ded1bf;padding:0 0 1.2rem;margin:0 0 1.2rem}.customizer legend{font:1.3rem Georgia,serif;margin-bottom:.8rem}.customizer fieldset label{display:inline-flex;align-items:center;gap:.35rem;border:1px solid #ded1bf;padding:.55rem .75rem;margin:.25rem;cursor:pointer}.customizer fieldset label:has(input:checked){border-color:#c99847;background:#f8efdf}.customizer input{accent-color:#a87931}.color span{width:18px;height:18px;border-radius:50%;background:var(--swatch)}.custom-fields{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.2rem}.custom-fields label{font-size:.8rem;font-weight:bold}.custom-fields select,.custom-fields textarea{display:block;width:100%;margin-top:.35rem;padding:.75rem;border:1px solid #cfc3b1;font:inherit}.custom-fields textarea{min-height:85px;resize:vertical}.custom-status{color:#7b5520}@media(max-width:900px){.customizer{grid-template-columns:1fr}}@media(max-width:600px){.custom-fields{grid-template-columns:1fr}.bracelet-preview{height:250px}.thread,.beads{transform:scale(.8)}}
+.customizer{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,7vw,7rem);padding:7rem clamp(1.2rem,7vw,8rem);background:#f4ecdf;align-items:center}
+.customizer-intro>p{max-width:560px;color:#766d63}
+.bracelet-examples{display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin-top:1.5rem}
+.bracelet-examples figure{margin:0;background:#fff;border:1px solid #ddcfbb}
+.bracelet-examples img{display:block;width:100%;aspect-ratio:1;object-fit:cover}
+.bracelet-examples figcaption{padding:.65rem .35rem;text-align:center;font-size:.78rem;font-weight:700}
+.customizer-intro .examples-note{font-size:.72rem;line-height:1.45;margin-top:.55rem}
+.bracelet-preview{height:300px;position:relative;display:grid;place-items:center;margin-top:2rem;background:radial-gradient(circle,#fff 0 24%,#eadcc7 25% 60%,#d8c2a0);overflow:hidden}
+.thread{position:absolute;width:230px;height:150px;border:9px solid var(--thread,#17130f);border-radius:50%;box-shadow:inset 0 0 0 2px #fff4}
+.beads{position:absolute;width:250px;height:170px;border:20px dotted #c99847;border-radius:50%}
+.bracelet-preview[data-look=diamond] .beads{border-style:dashed;filter:drop-shadow(0 0 3px #fff)}
+.bracelet-preview[data-look=mixed] .beads{border-style:double;border-width:16px}
+.charm{position:absolute;bottom:54px;background:#d6a654;color:#17130f;width:43px;height:43px;border-radius:50%;display:grid;place-items:center;font:1.6rem Georgia}
+.preview-note{text-align:center;font-size:.75rem}
+.customizer form{background:#fff;padding:clamp(1.2rem,4vw,3rem)}
+.customizer fieldset{border:0;border-bottom:1px solid #ded1bf;padding:0 0 1.2rem;margin:0 0 1.2rem}
+.customizer legend{font:1.3rem Georgia,serif;margin-bottom:.8rem}
+.customizer fieldset label{display:inline-flex;align-items:center;gap:.35rem;border:1px solid #ded1bf;padding:.55rem .75rem;margin:.25rem;cursor:pointer}
+.customizer fieldset label:has(input:checked){border-color:#c99847;background:#f8efdf}
+.customizer input{accent-color:#a87931}
+.color span{width:18px;height:18px;border-radius:50%;background:var(--swatch)}
+.custom-fields{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.2rem}
+.custom-fields label{font-size:.8rem;font-weight:bold}
+.custom-fields select,.custom-fields textarea{display:block;width:100%;margin-top:.35rem;padding:.75rem;border:1px solid #cfc3b1;font:inherit}
+.custom-fields textarea{min-height:85px;resize:vertical}
+.custom-status{color:#7b5520}
+@media(max-width:900px){.customizer{grid-template-columns:1fr}
+}
+@media(max-width:600px){.custom-fields{grid-template-columns:1fr}
+.bracelet-preview{height:250px}
+.thread,.beads{transform:scale(.8)}
+}
