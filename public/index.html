@@ -10,10 +10,10 @@
 <link rel="stylesheet" href="product-images.css?v=8">
 <link rel="stylesheet" href="social.css">
 <link rel="stylesheet" href="commerce.css?v=8">
-<link rel="stylesheet" href="customizer.css?v=9">
+<link rel="stylesheet" href="customizer.css?v=10">
 <script type="module" src="app.js?v=8">
 </script>
-<script type="module" src="customizer.js?v=9">
+<script type="module" src="customizer.js?v=10">
 </script>
 </head>
 <body>
@@ -27,7 +27,7 @@
 <button class="menu" aria-label="Abrir menú" aria-expanded="false">☰</button>
 <nav>
 <a href="#catalogo">Colecciones</a>
-<a href="#personalizar">Diseña tu manilla</a>
+<a href="#personalizar">Diseña tu joya</a>
 <a href="#pagos">Pagos</a>
 <a class="login-link" href="login.html">Iniciar sesión</a>
 <a class="pill" href="#contacto">Quiero una joya</a>
@@ -79,9 +79,9 @@
 </section>
 <section class="customizer" id="personalizar">
 <div class="customizer-intro">
-<p class="eyebrow">Hecha por ti, tejida por nosotros</p>
-<h2>Diseña tu manilla</h2>
-<p>Combina balines, dije y color de tejido. La vista previa es una guía; nuestra asesora confirmará materiales, disponibilidad y precio.</p>
+<p class="eyebrow">Diseñada por ti, tejida por nosotros</p>
+<h2>Diseña tu manilla o anillo</h2>
+<p>Elige la pieza, el tipo de tejido, los balines, el dije y el color. La vista previa es una guía; nuestra asesora confirmará materiales, disponibilidad y precio.</p>
 <div class="bracelet-examples" aria-label="Ejemplos de manillas personalizadas">
 <figure><img src="assets/manilla-lisos-ejemplo.webp" alt="Ejemplo de manilla negra con balines lisos dorados" loading="lazy"><figcaption>Balines lisos</figcaption></figure>
 <figure><img src="assets/manilla-diamantados-ejemplo.webp" alt="Ejemplo de manilla roja con balines diamantados y dije de estrella" loading="lazy"><figcaption>Diamantados + dije</figcaption></figure>
@@ -96,7 +96,19 @@
 </div>
 <form id="customizerForm">
 <fieldset>
-<legend>1. Elige los balines</legend>
+<legend>1. ¿Qué quieres diseñar?</legend>
+<label><input type="radio" name="item" value="Manilla" checked>Manilla tejida</label>
+<label><input type="radio" name="item" value="Anillo">Anillo tejido</label>
+</fieldset>
+<fieldset>
+<legend>2. Elige el tipo de tejido</legend>
+<label><input type="radio" name="weave" value="Nudo tradicional" data-weave="traditional" checked>Nudo tradicional</label>
+<label><input type="radio" name="weave" value="Tejido doble" data-weave="double">Tejido doble</label>
+<label><input type="radio" name="weave" value="Trenzado" data-weave="braided">Trenzado</label>
+<label><input type="radio" name="weave" value="Espiral" data-weave="spiral">Espiral</label>
+</fieldset>
+<fieldset>
+<legend>3. Elige los balines</legend>
 <label>
 <input type="radio" name="beads" value="Balines lisos" data-look="smooth" checked>● Lisos</label>
 <label>
@@ -105,7 +117,7 @@
 <input type="radio" name="beads" value="Combinados" data-look="mixed">●✦ Combinados</label>
 </fieldset>
 <fieldset>
-<legend>2. Elige el color del tejido</legend>
+<legend>4. Elige el color del tejido</legend>
 <label class="color">
 <input type="radio" name="thread" value="Negro" data-color="#17130f" checked>
 <span style="--swatch:#17130f">
@@ -132,7 +144,7 @@
 </span>Beige</label>
 </fieldset>
 <fieldset>
-<legend>3. Elige un dije</legend>
+<legend>5. Elige un dije</legend>
 <label>
 <input type="radio" name="charm" value="Corazón" data-symbol="♡" checked>♡ Corazón</label>
 <label>
@@ -143,7 +155,7 @@
 <input type="radio" name="charm" value="Sin dije" data-symbol="">Sin dije</label>
 </fieldset>
 <div class="custom-fields">
-<label>Medida de muñeca<select name="size" required>
+<label><span id="sizeLabel">Medida de muñeca</span><select name="size" required data-item="Manilla">
 <option value="">Selecciona…</option>
 <option>14 cm</option>
 <option>15 cm</option>
