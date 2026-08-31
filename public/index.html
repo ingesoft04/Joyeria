@@ -10,10 +10,10 @@
 <link rel="stylesheet" href="product-images.css?v=8">
 <link rel="stylesheet" href="social.css">
 <link rel="stylesheet" href="commerce.css?v=8">
-<link rel="stylesheet" href="customizer.css?v=7">
+<link rel="stylesheet" href="customizer.css?v=9">
 <script type="module" src="app.js?v=8">
 </script>
-<script type="module" src="customizer.js?v=7">
+<script type="module" src="customizer.js?v=9">
 </script>
 </head>
 <body>
@@ -88,14 +88,11 @@
 <figure><img src="assets/manilla-combinados-ejemplo.webp" alt="Ejemplo de manilla rosada con balines combinados y dije de corazón" loading="lazy"><figcaption>Combinados + dije</figcaption></figure>
 </div>
 <p class="examples-note">Imágenes de referencia creadas para visualizar combinaciones; no representan inventario exacto.</p>
-<div class="bracelet-preview" id="braceletPreview" aria-label="Vista previa de la manilla">
-<span class="thread">
-</span>
-<div class="beads" aria-hidden="true">
+<div class="bracelet-preview bracelet-3d" id="braceletPreview" aria-label="Simulación 3D de la manilla">
+<canvas id="braceletCanvas" role="img" aria-label="Simulación 3D interactiva de la manilla personalizada"></canvas>
+<span class="drag-hint" aria-hidden="true">↔ Arrastra para girar</span>
 </div>
-<strong class="charm" aria-hidden="true">♡</strong>
-</div>
-<p class="preview-note">Vista previa ilustrativa</p>
+<p class="preview-note">Simulación 3D aproximada · gira la manilla con el dedo o el mouse</p>
 </div>
 <form id="customizerForm">
 <fieldset>
