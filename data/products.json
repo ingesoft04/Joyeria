@@ -14,6 +14,7 @@
   {"id":"PN-001","name":"Pulseras NCL","category":"pulseras_ncl","price":0,"material":"Oro","description":"Pulseras NCL disponibles por referencia.","status":"active"},
   {"id":"PT-001","name":"Pulseras ITL","category":"pulseras_itl","price":0,"material":"Oro","description":"Pulseras ITL disponibles por referencia.","status":"active"},
   {"id":"AN-001","name":"Anillos","category":"anillos","price":0,"material":"Oro","description":"Anillos en variedad de estilos y tallas.","status":"active"},
+  {"id":"MP-001","name":"Manilla tejida personalizada","category":"manillas_personalizadas","price":0,"material":"Tejido, balines y dije","description":"Diseña una manilla con el tejido, los balines y el dije que más te gusten.","status":"active"},
   {"id":"AC-001","name":"Accesorios","category":"accesorios","price":0,"material":"Accesorios","description":"Accesorios y detalles para regalar.","status":"active"},
   {"id":"CB-001","name":"Accesorios para el cabello","category":"accesorios_cabello","price":0,"material":"Accesorios","description":"Accesorios para complementar tu cabello.","status":"active"},
   {"id":"PE-001","name":"Peluches","category":"peluches","price":0,"material":"Felpa","description":"Peluches para regalar en momentos especiales.","status":"active"},
