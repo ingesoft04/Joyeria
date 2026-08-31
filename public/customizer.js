@@ -2,19 +2,14 @@ const form=document.querySelector('#customizerForm');
 const preview=document.querySelector('#braceletPreview');
 const canvas=document.querySelector('#braceletCanvas');
 const ctx=canvas.getContext('2d');
-let rotation=-.25,dragging=false,lastX=0;
+const handModel=document.querySelector('.hand-model');
+const handCharm=document.querySelector('.hand-charm');
+let rotation=-.25,dragging=false,lastX=0,lastY=0,handX=-16,handY=-18;
 
 const sizeOptions={
   Manilla:['14 cm','15 cm','16 cm','17 cm','18 cm','19 cm','20 cm'],
   Anillo:['Talla 4','Talla 5','Talla 6','Talla 7','Talla 8','Talla 9','Talla 10','Talla 11']
 };
-const handImages={
-  'Manilla-Mujer':'assets/probar-manilla-mujer-v1.webp',
-  'Manilla-Hombre':'assets/probar-manilla-hombre-v1.webp',
-  'Anillo-Mujer':'assets/probar-anillo-mujer-v1.webp',
-  'Anillo-Hombre':'assets/probar-anillo-hombre-v1.webp'
-};
-
 function colorMix(hex,amount){
   const value=parseInt(hex.slice(1),16);
   const channel=shift=>Math.max(0,Math.min(255,((value>>shift)&255)+amount));
@@ -48,8 +43,14 @@ function draw(){
   if(onHand&&isRing){cx=width*.435;cy=height*.405;rx=Math.max(10,width*.027);ry=Math.max(5,height*.017)}
   if(onHand&&!isRing){cx=width*.49;cy=height*.51;rx=Math.max(18,width*.043);ry=Math.max(43,height*.19)}
   const look=form.querySelector('[name=beads]:checked').dataset.look,weave=form.querySelector('[name=weave]:checked').dataset.weave,thread=form.querySelector('[name=thread]:checked').dataset.color,symbol=form.querySelector('[name=charm]:checked').dataset.symbol;
-  preview.classList.toggle('on-hand',onHand);preview.style.backgroundImage=onHand?`url('${handImages[`${item}-${view}`]}')`:'';
+  preview.classList.toggle('on-hand',onHand);preview.classList.toggle('male',view==='Hombre');preview.style.backgroundImage='';
   ctx.clearRect(0,0,width,height);
+  if(onHand){
+    handModel.className=`hand-model ${isRing?'ring-mode':'bracelet-mode'} weave-${weave} look-${look}`;
+    handModel.style.setProperty('--hand-x',`${handX}deg`);handModel.style.setProperty('--hand-y',`${handY}deg`);handModel.style.setProperty('--jewel-thread',thread);handCharm.textContent=symbol;
+    preview.setAttribute('aria-label',`Modelo 3D de mano de ${view.toLowerCase()} con ${item.toLowerCase()}, ${form.elements.weave.value.toLowerCase()}, color ${form.elements.thread.value.toLowerCase()} y dije ${form.elements.charm.value.toLowerCase()}`);
+    return;
+  }
   if(!onHand){const shadow=ctx.createRadialGradient(cx,cy+ry+38,5,cx,cy+ry+38,rx*.82);shadow.addColorStop(0,'#5d421b35');shadow.addColorStop(1,'#5d421b00');ctx.fillStyle=shadow;ctx.beginPath();ctx.ellipse(cx,cy+ry+38,rx*.82,18,0,0,Math.PI*2);ctx.fill()}
   const baseWidth=onHand?(isRing?5:7):(weave==='double'?15:11);
   threadEllipse(cx,cy,rx,ry,colorMix(thread,-22),baseWidth);
@@ -70,10 +71,10 @@ function updateSizeOptions(){
   document.querySelector('#sizeLabel').textContent=item==='Anillo'?'Talla del anillo':'Medida de muñeca';
 }
 function updatePreview(){updateSizeOptions();draw()}
-canvas.addEventListener('pointerdown',event=>{if(form.elements.view.value!=='Producto')return;dragging=true;lastX=event.clientX;canvas.setPointerCapture(event.pointerId);preview.classList.add('dragging')});
-canvas.addEventListener('pointermove',event=>{if(!dragging)return;rotation+=(event.clientX-lastX)*.018;lastX=event.clientX;draw()});
-canvas.addEventListener('pointerup',()=>{dragging=false;preview.classList.remove('dragging')});
-canvas.addEventListener('pointercancel',()=>{dragging=false;preview.classList.remove('dragging')});
+preview.addEventListener('pointerdown',event=>{dragging=true;lastX=event.clientX;lastY=event.clientY;preview.setPointerCapture(event.pointerId);preview.classList.add('dragging')});
+preview.addEventListener('pointermove',event=>{if(!dragging)return;const dx=event.clientX-lastX,dy=event.clientY-lastY;if(form.elements.view.value==='Producto')rotation+=dx*.018;else{handY=Math.max(-65,Math.min(65,handY+dx*.45));handX=Math.max(-55,Math.min(35,handX-dy*.4))}lastX=event.clientX;lastY=event.clientY;draw()});
+preview.addEventListener('pointerup',()=>{dragging=false;preview.classList.remove('dragging')});
+preview.addEventListener('pointercancel',()=>{dragging=false;preview.classList.remove('dragging')});
 form.addEventListener('change',updatePreview);
 form.addEventListener('submit',event=>{
   event.preventDefault();if(!form.elements.size.value){form.querySelector('.custom-status').textContent='Selecciona una medida o indica que aún no la sabes.';return}
