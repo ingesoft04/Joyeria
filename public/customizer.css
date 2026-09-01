@@ -35,3 +35,4 @@
 .bracelet-preview{height:280px}
 }
 .hand-stage{perspective:none}.hand-stage canvas{display:block!important;width:100%!important;height:100%!important}
+.model-label{position:absolute;left:.75rem;top:.75rem;z-index:4;padding:.4rem .65rem;background:#fffdf0e8;color:#4d3216;border:1px solid #c99847;border-radius:1rem;font-size:.7rem;letter-spacing:.04em}.on-hand .model-label{display:block}

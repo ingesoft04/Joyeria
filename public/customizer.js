@@ -1,10 +1,11 @@
-import {Hand3D} from './hand-3d.js?v=2';
+import {Hand3D} from './hand-3d.js?v=3';
 
 const form=document.querySelector('#customizerForm');
 const preview=document.querySelector('#braceletPreview');
 const canvas=document.querySelector('#braceletCanvas');
 const ctx=canvas.getContext('2d');
 const hand3d=new Hand3D(document.querySelector('#handStage'));
+const modelLabel=document.querySelector('#modelLabel');
 let rotation=-.25,dragging=false,lastX=0,lastY=0;
 
 const sizeOptions={
@@ -45,6 +46,7 @@ function draw(){
   if(onHand&&!isRing){cx=width*.49;cy=height*.51;rx=Math.max(18,width*.043);ry=Math.max(43,height*.19)}
   const look=form.querySelector('[name=beads]:checked').dataset.look,weave=form.querySelector('[name=weave]:checked').dataset.weave,thread=form.querySelector('[name=thread]:checked').dataset.color,symbol=form.querySelector('[name=charm]:checked').dataset.symbol;
   preview.classList.toggle('on-hand',onHand);preview.classList.toggle('male',view==='Hombre');preview.style.backgroundImage='';
+  modelLabel.hidden=!onHand;modelLabel.textContent=onHand?`Modelo 3D · Mano de ${view.toLowerCase()}`:'';
   ctx.clearRect(0,0,width,height);
   if(onHand){
     hand3d.setJewelry({item,thread,look,weave,symbol,gender:view});
