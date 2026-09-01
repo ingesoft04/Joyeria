@@ -1,4 +1,4 @@
-import {Hand3D} from './hand-3d.js?v=5';
+import {Hand3D} from './hand-3d.js?v=7';
 
 const form=document.querySelector('#customizerForm');
 const preview=document.querySelector('#braceletPreview');
@@ -39,8 +39,8 @@ function threadEllipse(cx,cy,rx,ry,color,width,dash=[],offset=0){
   ctx.save();ctx.strokeStyle=color;ctx.lineWidth=width;ctx.setLineDash(dash);ctx.lineDashOffset=offset;ctx.beginPath();ctx.ellipse(cx,cy,rx,ry,0,0,Math.PI*2);ctx.stroke();ctx.restore();
 }
 function draw(){
-  if(!canvas.width)return;
   const width=canvas.clientWidth,height=canvas.clientHeight,item=form.elements.namedItem('item').value,isRing=item==='Anillo',view=form.elements.namedItem('view').value,onHand=view!=='Producto';
+  if(!canvas.width&&!onHand)return;
   let cx=width/2,cy=height/2-4,rx=Math.min(width*(isRing?.24:.35),isRing?112:175),ry=Math.min(height*(isRing?.29:.24),isRing?94:82);
   if(onHand&&isRing){cx=width*.435;cy=height*.405;rx=Math.max(10,width*.027);ry=Math.max(5,height*.017)}
   if(onHand&&!isRing){cx=width*.49;cy=height*.51;rx=Math.max(18,width*.043);ry=Math.max(43,height*.19)}
@@ -77,7 +77,7 @@ preview.addEventListener('pointerdown',event=>{dragging=true;lastX=event.clientX
 preview.addEventListener('pointermove',event=>{if(!dragging)return;const dx=event.clientX-lastX,dy=event.clientY-lastY;if(form.elements.namedItem('view').value==='Producto'){rotation+=dx*.018;draw()}else hand3d.rotate(dx,dy);lastX=event.clientX;lastY=event.clientY});
 preview.addEventListener('pointerup',()=>{dragging=false;preview.classList.remove('dragging')});
 preview.addEventListener('pointercancel',()=>{dragging=false;preview.classList.remove('dragging')});
-form.addEventListener('change',updatePreview);
+form.querySelectorAll('input,select,textarea').forEach(control=>control.addEventListener('change',()=>{preview.dataset.lastChange=`${control.name}:${control.value}`;updatePreview()}));
 form.addEventListener('submit',event=>{
   event.preventDefault();if(!form.elements.size.value){form.querySelector('.custom-status').textContent='Selecciona una medida o indica que aún no la sabes.';return}
   const data=new FormData(form),text=`Hola, quiero cotizar un diseño tejido personalizado.\n\n• Producto: ${data.get('item')}\n• Tipo de tejido: ${data.get('weave')}\n• Balines: ${data.get('beads')}\n• Color del tejido: ${data.get('thread')}\n• Dije: ${data.get('charm')}\n• Medida o talla: ${data.get('size')}\n• Vista usada: ${data.get('view')}\n• Detalle adicional: ${data.get('notes')||'Ninguno'}\n\nEntiendo que la simulación es aproximada y que disponibilidad y precio serán confirmados por BEZALEEL.`;
