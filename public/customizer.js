@@ -1,4 +1,4 @@
-import {Hand3D} from './hand-3d.js?v=3';
+import {Hand3D} from './hand-3d.js?v=4';
 
 const form=document.querySelector('#customizerForm');
 const preview=document.querySelector('#braceletPreview');
