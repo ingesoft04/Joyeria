@@ -1,10 +1,11 @@
+import {Hand3D} from './hand-3d.js?v=2';
+
 const form=document.querySelector('#customizerForm');
 const preview=document.querySelector('#braceletPreview');
 const canvas=document.querySelector('#braceletCanvas');
 const ctx=canvas.getContext('2d');
-const handModel=document.querySelector('.hand-model');
-const handCharm=document.querySelector('.hand-charm');
-let rotation=-.25,dragging=false,lastX=0,lastY=0,handX=-16,handY=-18;
+const hand3d=new Hand3D(document.querySelector('#handStage'));
+let rotation=-.25,dragging=false,lastX=0,lastY=0;
 
 const sizeOptions={
   Manilla:['14 cm','15 cm','16 cm','17 cm','18 cm','19 cm','20 cm'],
@@ -46,8 +47,7 @@ function draw(){
   preview.classList.toggle('on-hand',onHand);preview.classList.toggle('male',view==='Hombre');preview.style.backgroundImage='';
   ctx.clearRect(0,0,width,height);
   if(onHand){
-    handModel.className=`hand-model ${isRing?'ring-mode':'bracelet-mode'} weave-${weave} look-${look}`;
-    handModel.style.setProperty('--hand-x',`${handX}deg`);handModel.style.setProperty('--hand-y',`${handY}deg`);handModel.style.setProperty('--jewel-thread',thread);handCharm.textContent=symbol;
+    hand3d.setJewelry({item,thread,look,weave,symbol,gender:view});
     preview.setAttribute('aria-label',`Modelo 3D de mano de ${view.toLowerCase()} con ${item.toLowerCase()}, ${form.elements.weave.value.toLowerCase()}, color ${form.elements.thread.value.toLowerCase()} y dije ${form.elements.charm.value.toLowerCase()}`);
     return;
   }
@@ -72,7 +72,7 @@ function updateSizeOptions(){
 }
 function updatePreview(){updateSizeOptions();draw()}
 preview.addEventListener('pointerdown',event=>{dragging=true;lastX=event.clientX;lastY=event.clientY;preview.setPointerCapture(event.pointerId);preview.classList.add('dragging')});
-preview.addEventListener('pointermove',event=>{if(!dragging)return;const dx=event.clientX-lastX,dy=event.clientY-lastY;if(form.elements.namedItem('view').value==='Producto')rotation+=dx*.018;else{handY=Math.max(-65,Math.min(65,handY+dx*.45));handX=Math.max(-55,Math.min(35,handX-dy*.4))}lastX=event.clientX;lastY=event.clientY;draw()});
+preview.addEventListener('pointermove',event=>{if(!dragging)return;const dx=event.clientX-lastX,dy=event.clientY-lastY;if(form.elements.namedItem('view').value==='Producto'){rotation+=dx*.018;draw()}else hand3d.rotate(dx,dy);lastX=event.clientX;lastY=event.clientY});
 preview.addEventListener('pointerup',()=>{dragging=false;preview.classList.remove('dragging')});
 preview.addEventListener('pointercancel',()=>{dragging=false;preview.classList.remove('dragging')});
 form.addEventListener('change',updatePreview);

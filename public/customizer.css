@@ -34,3 +34,4 @@
 .thread,.beads{transform:scale(.8)}
 .bracelet-preview{height:280px}
 }
+.hand-stage{perspective:none}.hand-stage canvas{display:block!important;width:100%!important;height:100%!important}
