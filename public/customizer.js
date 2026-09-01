@@ -38,7 +38,7 @@ function threadEllipse(cx,cy,rx,ry,color,width,dash=[],offset=0){
 }
 function draw(){
   if(!canvas.width)return;
-  const width=canvas.clientWidth,height=canvas.clientHeight,item=form.elements.item.value,isRing=item==='Anillo',view=form.elements.view.value,onHand=view!=='Producto';
+  const width=canvas.clientWidth,height=canvas.clientHeight,item=form.elements.namedItem('item').value,isRing=item==='Anillo',view=form.elements.namedItem('view').value,onHand=view!=='Producto';
   let cx=width/2,cy=height/2-4,rx=Math.min(width*(isRing?.24:.35),isRing?112:175),ry=Math.min(height*(isRing?.29:.24),isRing?94:82);
   if(onHand&&isRing){cx=width*.435;cy=height*.405;rx=Math.max(10,width*.027);ry=Math.max(5,height*.017)}
   if(onHand&&!isRing){cx=width*.49;cy=height*.51;rx=Math.max(18,width*.043);ry=Math.max(43,height*.19)}
@@ -66,13 +66,13 @@ function draw(){
   preview.setAttribute('aria-label',`Referencia en ${view.toLowerCase()}: ${item.toLowerCase()} con ${form.elements.beads.value.toLowerCase()}, ${form.elements.weave.value.toLowerCase()}, tejido ${form.elements.thread.value.toLowerCase()} y dije ${form.elements.charm.value.toLowerCase()}`);
 }
 function updateSizeOptions(){
-  const item=form.elements.item.value,select=form.elements.size;if(select.dataset.item===item)return;
+  const item=form.elements.namedItem('item').value,select=form.elements.namedItem('size');if(select.dataset.item===item)return;
   select.dataset.item=item;select.innerHTML='<option value="">Selecciona…</option>'+sizeOptions[item].map(v=>`<option>${v}</option>`).join('')+'<option value="Por confirmar">No sé la medida todavía</option>';
   document.querySelector('#sizeLabel').textContent=item==='Anillo'?'Talla del anillo':'Medida de muñeca';
 }
 function updatePreview(){updateSizeOptions();draw()}
 preview.addEventListener('pointerdown',event=>{dragging=true;lastX=event.clientX;lastY=event.clientY;preview.setPointerCapture(event.pointerId);preview.classList.add('dragging')});
-preview.addEventListener('pointermove',event=>{if(!dragging)return;const dx=event.clientX-lastX,dy=event.clientY-lastY;if(form.elements.view.value==='Producto')rotation+=dx*.018;else{handY=Math.max(-65,Math.min(65,handY+dx*.45));handX=Math.max(-55,Math.min(35,handX-dy*.4))}lastX=event.clientX;lastY=event.clientY;draw()});
+preview.addEventListener('pointermove',event=>{if(!dragging)return;const dx=event.clientX-lastX,dy=event.clientY-lastY;if(form.elements.namedItem('view').value==='Producto')rotation+=dx*.018;else{handY=Math.max(-65,Math.min(65,handY+dx*.45));handX=Math.max(-55,Math.min(35,handX-dy*.4))}lastX=event.clientX;lastY=event.clientY;draw()});
 preview.addEventListener('pointerup',()=>{dragging=false;preview.classList.remove('dragging')});
 preview.addEventListener('pointercancel',()=>{dragging=false;preview.classList.remove('dragging')});
 form.addEventListener('change',updatePreview);
