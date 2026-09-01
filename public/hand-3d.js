@@ -35,10 +35,10 @@ export class Hand3D{
     this.skin.color.set(gender==='Hombre'?0xa86442:0xc98258);this.nail.color.set(gender==='Hombre'?0xc88470:0xeab29f);this.root.scale.set(gender==='Hombre'?1.08:.98,gender==='Hombre'?1.03:1,gender==='Hombre'?1.07:.96);
     if(this.human)this.human.traverse(node=>{if(node.isMesh&&node.material?.color)node.material.color.set(gender==='Hombre'?0xb87655:0xd59a78)});
     this.jewelry.clear();const ring=item==='Anillo',major=ring?.21:.43,tube=ring?.045:(weave==='double'?.07:.052),threadMaterial=new THREE.MeshPhysicalMaterial({color:thread,roughness:.68,clearcoat:.2});
-    const jewelryX=ring?.22:1.18,jewelryY=ring?1.28:-1.06,jewelryZ=ring?.48:0;const cord=new THREE.Mesh(new THREE.TorusGeometry(major,tube,12,64),threadMaterial);cord.rotation.x=Math.PI/2;cord.position.set(jewelryX,jewelryY,jewelryZ);cord.renderOrder=3;this.jewelry.add(cord);
+    const jewelryX=ring?.22:1.18,jewelryY=ring?1.28:-.8,jewelryZ=ring?.48:.02;const cord=new THREE.Mesh(new THREE.TorusGeometry(major,tube,12,64),threadMaterial);cord.rotation.x=Math.PI/2;cord.position.set(jewelryX,jewelryY,jewelryZ);cord.renderOrder=3;this.jewelry.add(cord);
     const gold=new THREE.MeshPhysicalMaterial({color:0xd6a33b,metalness:.82,roughness:.18,clearcoat:1});const count=ring?8:11;
     for(let i=0;i<count;i++){const a=i/count*Math.PI*2,r=major,diamond=look==='diamond'||look==='mixed'&&i%2;const bead=new THREE.Mesh(diamond?new THREE.OctahedronGeometry(ring?.065:.078,1):new THREE.SphereGeometry(ring?.065:.078,16,12),gold);bead.position.set(jewelryX+Math.cos(a)*r,jewelryY,jewelryZ+Math.sin(a)*r);bead.rotation.x=Math.PI/2;bead.renderOrder=4;this.jewelry.add(bead)}
-    if(symbol){const charm=new THREE.Mesh(new THREE.SphereGeometry(ring?.1:.14,18,14),gold);charm.position.set(jewelryX,ring?1.05:-1.28,ring?.64:.46);charm.renderOrder=5;this.jewelry.add(charm)}
+    if(symbol){const charm=new THREE.Mesh(new THREE.SphereGeometry(ring?.1:.14,18,14),gold);charm.position.set(jewelryX,ring?1.05:-1.03,ring?.64:.48);charm.renderOrder=5;this.jewelry.add(charm)}
   }
   rotate(dx,dy){this.root.rotation.y+=dx*.012;this.root.rotation.x=Math.max(-1,Math.min(.8,this.root.rotation.x+dy*.01))}
   resize(){const w=this.stage.clientWidth||1,h=this.stage.clientHeight||1;this.renderer.setSize(w,h,false);this.camera.aspect=w/h;this.camera.updateProjectionMatrix()}
