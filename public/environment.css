@@ -1,0 +1,2 @@
+.test-environment-banner{position:relative;z-index:10000;width:100%;padding:.65rem 1rem;background:#f2cf70;color:#17130f;border-bottom:1px solid #a56f17;text-align:center;font:700 .86rem/1.35 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.015em;box-sizing:border-box}
+@media(max-width:520px){.test-environment-banner{padding:.58rem .75rem;font-size:.78rem}}
