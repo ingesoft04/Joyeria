@@ -2,6 +2,17 @@
 
 Sitio full stack responsive para catálogo y solicitudes comerciales. Producción: `https://joyeria.dev-fmv.duckdns.org/`.
 
+Ambiente de pruebas: `https://test-joyeria.dev-fmv.duckdns.org/`.
+
+## Flujo de publicación
+
+1. Cada cambio se implementa y publica primero en el ambiente de pruebas.
+2. Se ejecutan las pruebas automatizadas y la revisión visual en escritorio y celular.
+3. El usuario revisa `test-joyeria.dev-fmv.duckdns.org` y confirma la publicación.
+4. Sólo después de esa autorización se despliega exactamente el mismo commit en producción.
+
+Los ambientes usan contenedores, puertos y volúmenes separados. Los datos o imágenes cargados en pruebas no modifican el catálogo productivo.
+
 Canales oficiales: [Instagram](https://www.instagram.com/bezaleeljoyeriayaccesorios) y WhatsApp `+57 317 569 7698`.
 
 Administración visual: `https://joyeria.dev-fmv.duckdns.org/admin` (clave en `ADMIN_PASSWORD`). Permite editar precios, textos, disponibilidad y fotografías sin tocar código.
