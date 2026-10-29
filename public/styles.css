@@ -84,3 +84,4 @@ footer{background:var(--black);color:#aaa;padding:3rem clamp(1.5rem,6vw,7rem);di
 .trust,footer{flex-direction:column;align-items:flex-start}
 .promise,.catalog,.story,.contact{padding-top:5rem;padding-bottom:5rem}
 }
+:where([hidden]){display:none!important}
