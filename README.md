@@ -1,10 +1,10 @@
 # BEZALEEL KR — Joyería y accesorios
 
-Sitio full stack responsive para catálogo y solicitudes comerciales. Producción: `https://dev-fmv.duckdns.org/joyeria/`.
+Sitio full stack responsive para catálogo y solicitudes comerciales. Producción: `https://joyeria.dev-fmv.duckdns.org/`.
 
 Canales oficiales: [Instagram](https://www.instagram.com/bezaleeljoyeriayaccesorios) y WhatsApp `+57 317 569 7698`.
 
-Administración visual: `https://dev-fmv.duckdns.org/joyeria/admin` (clave en `ADMIN_PASSWORD`). Permite editar precios, textos, disponibilidad y fotografías sin tocar código.
+Administración visual: `https://joyeria.dev-fmv.duckdns.org/admin` (clave en `ADMIN_PASSWORD`). Permite editar precios, textos, disponibilidad y fotografías sin tocar código.
 
 La tienda enlaza a `login.html`, que por ahora autentica solamente al administrador. La interfaz documenta la futura zona de clientes para cuentas, seguimiento de pedidos e historial sin presentarla como una función ya disponible.
 
@@ -27,7 +27,7 @@ Las dependencias se inyectan en `server.js`; los casos de uso dependen de contra
 ```bash
 cp .env.example .env
 docker compose up -d --build
-curl http://127.0.0.1:3003/joyeria/api/health
+curl http://127.0.0.1:3003/api/health
 npm test
 ```
 

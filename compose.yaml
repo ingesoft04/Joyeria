@@ -4,7 +4,7 @@ services:
     restart: unless-stopped
     environment:
       PORT: 3000
-      BASE_PATH: /joyeria
+      BASE_PATH: ""
       WHATSAPP_NUMBER: ${WHATSAPP_NUMBER:-573175697698}
       ADMIN_PASSWORD: ${ADMIN_PASSWORD:-Cambiar-Esta-Clave}
     ports:
