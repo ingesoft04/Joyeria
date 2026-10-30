@@ -10,12 +10,12 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32-v1.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon-v1.png">
 <link rel="stylesheet" href="environment.css?v=1">
-<link rel="stylesheet" href="styles.css?v=10">
+<link rel="stylesheet" href="styles.css?v=11">
 <link rel="stylesheet" href="product-images.css?v=8">
 <link rel="stylesheet" href="social.css">
 <link rel="stylesheet" href="commerce.css?v=8">
 <link rel="stylesheet" href="customizer.css?v=16">
-<script type="module" src="app.js?v=10">
+<script type="module" src="app.js?v=11">
 </script>
 <script type="module" src="environment.js?v=1"></script>
 <script type="module" src="customizer.js?v=25">
@@ -71,7 +71,6 @@
 <p>Piezas versátiles y detalles llenos de intención.</p>
 </div>
 <div class="filters" role="group" aria-label="Filtrar productos">
-<button class="active" data-category="todos">Todos</button>
 <button data-category="aretes">Aretes</button>
 <button data-category="manillas">Manillas</button>
 <button data-category="anillos">Anillos</button>
@@ -82,14 +81,12 @@
 <h3>Selecciona una colección para ver todos sus productos</h3>
 </div>
 <div class="collection-cards" id="collectionCards" aria-label="Secciones del catálogo"></div>
-<div class="products-head">
-<div><p class="eyebrow">Productos</p><h3 id="productsTitle">Todos los productos</h3></div>
-<button id="showAllProducts" type="button" hidden>Ver todas las colecciones</button>
+<div class="products-head" id="productsHead" hidden>
+<div><p class="eyebrow">Productos</p><h3 id="productsTitle">Colección seleccionada</h3></div>
+<button id="showAllProducts" type="button">← Volver a las colecciones</button>
 </div>
-<div class="products" id="products" aria-live="polite">
-<p>Cargando colección…</p>
-</div>
-<p class="catalog-reference">Las imágenes marcadas como referencia muestran el tipo de producto. Las fotografías reales pueden cargarse fácilmente desde el panel del catálogo.</p>
+<div class="products" id="products" aria-live="polite" hidden></div>
+<p class="catalog-reference" id="catalogReference" hidden>Las imágenes marcadas como referencia muestran el tipo de producto. Las fotografías reales pueden cargarse fácilmente desde el panel del catálogo.</p>
 </section>
 <section class="customizer" id="personalizar" hidden aria-hidden="true">
 <div class="customizer-intro">
