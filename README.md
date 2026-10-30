@@ -1,45 +1,64 @@
 # BEZALEEL KR — Joyería y accesorios
 
-Sitio full stack responsive para catálogo y solicitudes comerciales. Producción: `https://joyeria.dev-fmv.duckdns.org/`.
+Aplicación web full stack, responsive y organizada con principios SOLID para presentar el catálogo de BEZALEEL, recibir solicitudes por WhatsApp y permitir que una persona sin conocimientos técnicos administre productos, precios, estados y fotografías.
 
-Ambiente de pruebas: `https://test-joyeria.dev-fmv.duckdns.org/`.
+## Enlaces
 
-## Flujo de publicación
+- Pruebas: <https://test-joyeria.dev-fmv.duckdns.org/>
+- Producción: <https://joyeria.dev-fmv.duckdns.org/>
+- Instagram: <https://www.instagram.com/bezaleeljoyeriayaccesorios>
+- WhatsApp: `+57 317 569 7698`
 
-1. Cada cambio se implementa y publica primero en el ambiente de pruebas.
-2. Se ejecutan las pruebas automatizadas y la revisión visual en escritorio y celular.
-3. El usuario revisa `test-joyeria.dev-fmv.duckdns.org` y confirma la publicación.
-4. Sólo después de esa autorización se despliega exactamente el mismo commit en producción.
+El entorno de pruebas muestra arriba el aviso **“Entorno de prueba · Los cambios aquí aún no están en producción”**. Los dos ambientes tienen contenedores, puertos y volúmenes independientes, por lo que editar el catálogo de pruebas no altera producción.
 
-Los ambientes usan contenedores, puertos y volúmenes separados. Los datos o imágenes cargados en pruebas no modifican el catálogo productivo.
+## Funcionalidades implementadas
 
-Canales oficiales: [Instagram](https://www.instagram.com/bezaleeljoyeriayaccesorios) y WhatsApp `+57 317 569 7698`.
+- Tienda responsive con catálogo, filtros, imágenes de referencia y estados de inventario.
+- Información de métodos de pago y enlaces oficiales de contacto.
+- Inicio de sesión administrativo; las cuentas, pedidos e historial de clientes quedan señalados como una etapa futura.
+- Panel de catálogo dividido entre cambios individuales y carga por plantilla.
+- Creación de productos con código automático por sección.
+- Edición de nombre, precio, material, descripción, estado y fotografía.
+- Retiro lógico: un producto retirado deja de mostrarse, pero permanece guardado y puede reactivarse.
+- Carga CSV compatible con Excel para hasta 500 filas, con validación previa y confirmación.
+- Tres modalidades de importación: actualizar y crear, sólo crear o sólo actualizar.
+- Carga simultánea de fotografías por el ID del producto.
+- Favicon y recursos visuales de BEZALEEL en tienda, acceso y administración.
+- Personalizador de manillas y anillos con tejidos, balines, dijes, tallas y vista 3D sobre mano femenina o masculina. Actualmente está conservado en el código pero oculto hasta retomar su desarrollo.
+- Pruebas automatizadas de dominio, catálogo, importaciones, seguridad administrativa, persistencia y recursos visuales.
 
-Administración visual: `https://joyeria.dev-fmv.duckdns.org/admin` (clave en `ADMIN_PASSWORD`). Permite editar precios, textos, disponibilidad y fotografías sin tocar código.
+## Documentación
 
-La tienda enlaza a `login.html`, que por ahora autentica solamente al administrador. La interfaz documenta la futura zona de clientes para cuentas, seguimiento de pedidos e historial sin presentarla como una función ya disponible.
-
-El panel agrupa los productos por categoría con prefijos `AR-`, `MA-`, `AN-` y `PE-`. La plantilla compatible con Excel utiliza tres columnas binarias (`disponible`, `agotado`, `retirado`): exactamente una debe llevar `1` y las otras `0`. Permite actualizar hasta 500 productos por carga.
-
-Las fotografías también admiten carga masiva. El nombre del archivo debe ser el ID del producto (`AR-001.jpg`); el panel valida coincidencias y tamaño antes de publicar secuencialmente cada imagen.
+- [Guía para administrar el catálogo](docs/ADMINISTRACION-CATALOGO.md)
+- [Guía técnica, pruebas y despliegue](docs/GUIA-TECNICA.md)
+- [Estándar de carga masiva de imágenes](public/ESTANDAR-IMAGENES.txt)
+- [Plantilla de catálogo](public/plantilla-catalogo.csv)
 
 ## Arquitectura
 
+El backend usa Node.js sin dependencias externas de ejecución y separa responsabilidades así:
+
 - `domain`: entidades y reglas esenciales.
-- `application`: casos de uso del catálogo y solicitudes.
+- `application`: casos de uso de catálogo, administración y solicitudes.
 - `infrastructure`: repositorios JSON intercambiables.
 - `interfaces`: controlador HTTP.
-- `public`: interfaz responsive accesible.
+- `public`: tienda y panel administrativo responsive.
 
-Las dependencias se inyectan en `server.js`; los casos de uso dependen de contratos implícitos y no del almacenamiento (DIP/SOLID).
+Las dependencias se inyectan desde `src/server.js`; los casos de uso dependen de contratos de repositorio y no de detalles de almacenamiento.
 
-## Ejecutar
+## Ejecución local
+
+Requisitos: Docker y Docker Compose.
 
 ```bash
 cp .env.example .env
 docker compose up -d --build
 curl http://127.0.0.1:3003/api/health
-npm test
+docker compose run --rm web node --test
 ```
 
-Antes de publicar, configure en `.env` el número de WhatsApp internacional sin `+`.
+Configure una clave segura en `ADMIN_PASSWORD`. No guarde el archivo `.env` ni credenciales reales en Git.
+
+## Regla de publicación
+
+Todo cambio se desarrolla en una rama, se prueba y se publica primero en pruebas. Sólo se fusiona o despliega en producción después de la autorización explícita del propietario. Consulte el procedimiento completo en [docs/GUIA-TECNICA.md](docs/GUIA-TECNICA.md).
